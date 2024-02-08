@@ -1,0 +1,148 @@
+:root {
+    --font-titulos: 'Arima', sans-serif;
+    --font-conteudo: 'Asap', sans-serif;
+    --cor-primaria: #98350b;
+    --cor-secundaria: #ff9763;
+    --cor-terciaria: #e37742;
+    --preto: #000;
+    --branco: #fff;
+    --azul-escuro: #197f85;
+    --azul-claro: #52cad1;
+    --amarelo: #fff4cb;
+    --caramelo: #e1bf7f;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Asap', sans-serif;
+}
+
+
+.header {
+    background-color: var(--cor-terciaria);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+}
+
+.header .logo>p {
+    font-family: var(--font-titulos);
+    color: var(--branco);
+    max-width: 180px;
+    font-size: 20px;
+}
+
+.header .logo>img {
+    width: 100px;
+}
+
+.header .hamburguer {
+    background: transparent;
+    height: 40px;
+    width: 26px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.header .hamburguer>span {
+    width: 100%;
+    height: 4px;
+    background: var(--branco);
+    display: block;
+    margin-bottom: 4px;
+    border-radius: 6px;
+}
+
+
+
+.header .navbar {
+    background-color: var(--cor-terciaria);
+    list-style: none;
+    position: absolute;
+    left: -1500px;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.4s;
+}
+
+.header .navbar.active {
+    left: 0;
+    top: 0;
+    transition: all 0.4s;
+}
+
+.header .navbar .close-button {
+    font-size: 40px;
+    color: var(--branco);
+    margin-left: auto;
+    width: fit-content;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.header .navbar>ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header .navbar>ul .titulo-menu {
+    font-family: var(--font-titulos);
+    font-size: 60px;
+    color: var(--branco);
+    font-weight: 700;
+}
+
+.header .navbar>ul>li {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.header .navbar>ul li>a {
+    color: var(--branco);
+    font-size: 20px;
+    position: relative;
+}
+
+.header .navbar>ul li>.arrow {
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(-135deg) translate(50%, 6px);
+    position: absolute;
+    top: 50%;
+    right: -34px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.header .navbar>ul li>ul {
+    list-style: none;
+    max-height: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+@media(min-width:1024px) {
+    .header {
+        padding: 20px 10px;
+    }
+}

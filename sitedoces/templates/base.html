@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {%block importacoes%} {%endblock%}
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-wrapper">
+        <h1 class="logo">
+          <img
+            src="{% static 'images/logo.png'%}"
+            alt="Logo Quitutes de venus"
+          />
+          <p>Quitutes <br />de venus</p>
+        </h1>
+        <button class="hamburguer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="navbar">
+          <div class="close-button">X</div>
+          <ul>
+            <p class="titulo-menu">Menu</p>
+            <li><a href="">Home</a></li>
+            <li>
+              <a href="{% url 'produtos' %}">Produtos </a>
+              <div class="arrow"></div>
+              <ul class="sub-menu">
+                <li>
+                  <a href="{%url 'produto_categoria' categoria_id=1 %}"
+                    >Brigadeiros</a
+                  >
+                </li>
+                <li>
+                  <a href="{%url 'produto_categoria' categoria_id=2 %}"
+                    >Brownies</a
+                  >
+                </li>
+                <li>
+                  <a href="{%url 'produto_categoria' categoria_id=3 %}"
+                    >Tortas</a
+                  >
+                </li>
+                <li>
+                  <a href="{%url 'produto_categoria' categoria_id=4 %}"
+                    >Bolacha</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="{%url 'sobre'%}">Sobre</a></li>
+            <li><a href="{%url 'contato'%}">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    {% block conteudo %} {% endblock %}
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
