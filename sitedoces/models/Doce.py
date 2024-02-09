@@ -1,4 +1,4 @@
-from sitedoces.models import models
+from sitedoces.models import models, Categoria
 
 
 class Doce(models.Model):
@@ -12,7 +12,8 @@ class Doce(models.Model):
     ativo = models.BooleanField(default=True)
     peso = models.IntegerField(null=False)
     unidade = models.IntegerField(choices=CHOICES)
-    categoria = models.CharField(null=False)
+    categoria = models.ForeignKey(
+        'Categoria', on_delete=models.CASCADE, related_name='categoria')
     quantidade = models.IntegerField(default=1)
     valor = models.DecimalField(max_digits=1000, decimal_places=2)
     descricao = models.TextField()
